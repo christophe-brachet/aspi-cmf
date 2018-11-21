@@ -1,5 +1,5 @@
 {
-    "name": "aspi-components/cmf",
+    "name": "aspi/components/cmf",
     "description": "CMS in PHP used in Aspi Framework",
     "type": "project",
     "minimum-stability": "stable",
