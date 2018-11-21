@@ -146,7 +146,7 @@ extension="imap.so"
 ```
 Step 6 - Install aspi-framework project from composer
 ```sh
-Brachets-Mac-mini:Desktop cbrachet$ composer create-project aspi-components/framework:dev-master aspi-app
+Brachets-Mac-mini:Desktop cbrachet$ composer create-project aspi-components/cmsaspi-app
 ```
 Step 7 - Go to application directy
 ```sh
