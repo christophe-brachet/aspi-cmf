@@ -1,6 +1,6 @@
 {
     "name": "aspi-components/cms",
-    "description": "CMS in PHP using Aspi Framework",
+    "description": "CMS in PHP used in Aspi Framework",
     "type": "project",
     "license": "MIT",
     "authors": [
