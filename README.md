@@ -170,12 +170,17 @@ Brachets-Mac-mini:Desktop cbrachet$  sudo nano cms.json
     "aspi_title": "Association Autisme-ça-suffit !"
 }
 ```
-Step 10 - Init web application
+Step 10 - Install npm dependencies
 ```sh
 Brachets-Mac-mini:aspi-app cbrachet$ cd ../../../
+Brachets-Mac-mini:aspi-app cbrachet$ npm install
+```
+Step 11 - Init web application
+```sh
 Brachets-Mac-mini:aspi-app cbrachet$ php bin/console aspi:init
 ```
-Step 11 - Start Swoole WebServer
+
+Step 12 - Start Swoole WebServer
 ```sh
 Brachets-Mac-mini:aspi-app cbrachet$ php bin/console aspi:webserver
 ```
