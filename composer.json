@@ -17,7 +17,7 @@
     },
     "require": {
         "php": "^5.5.9|^7.0",
-        "aspi-components/framework": "^1.9",
+        "aspi/components/framework": "^1.9",
         "league/event": "^2.1"
        
     }
