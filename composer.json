@@ -1,0 +1,23 @@
+{
+    "name": "aspi-components/cms",
+    "description": "CMS in PHP using Aspi Framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christophe  Brachet",
+            "email": "contact@brachet-breizh.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aspi\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^5.5.9|^7.0",
+        "aspi-components/framework": "^1.9",
+        "league/event": "^2.1"
+       
+    }
+}

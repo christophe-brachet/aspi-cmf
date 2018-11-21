@@ -1,0 +1,24 @@
+{
+  "name": "aspi-cms",
+  "version": "1.0.0",
+  "description": "ASPI-CMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophe-brachet/aspi-cms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christophe-brachet/aspi-cms/issues"
+  },
+  "homepage": "https://github.com/christophe-brachet/aspi-cms#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "flag-icon-css": "^3.2.0"
+  }
+}
