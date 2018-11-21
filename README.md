@@ -172,6 +172,7 @@ Brachets-Mac-mini:Desktop cbrachet$  sudo nano cms.json
 ```
 Step 10 - Init web application
 ```sh
+Brachets-Mac-mini:aspi-app cbrachet$ cd ../../../
 Brachets-Mac-mini:aspi-app cbrachet$ php bin/console aspi:init-app
 ```
 Step 11 - Start Swoole WebServer
