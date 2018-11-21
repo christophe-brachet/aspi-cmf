@@ -1,5 +1,5 @@
 {
-    "name": "aspi/components/cmf",
+    "name": "aspi-cmf-components/app",
     "description": "CMS in PHP used in Aspi Framework",
     "type": "project",
     "minimum-stability": "stable",
@@ -17,7 +17,7 @@
     },
     "require": {
         "php": "^5.5.9|^7.0",
-        "aspi/components/framework": "^1.9",
+        "aspi-cmf-components/framework": "^1.9",
         "league/event": "^2.1"
        
     }
