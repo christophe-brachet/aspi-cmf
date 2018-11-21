@@ -155,7 +155,7 @@ Brachets-Mac-mini:Desktop cbrachet$ cd aspi-app
 Step 8 - Create Config directory 
 ```sh
 Brachets-Mac-mini:Desktop cbrachet$  sudo mkdir src/CMS/Config
-Brachets-Mac-mini:Desktop cbrachet$  sudo chmod 777 -R src/CMS/Config
+Brachets-Mac-mini:Desktop cbrachet$  sudo chmod -R 777 src/CMS/Config
 Brachets-Mac-mini:Desktop cbrachet$  cd src/CMS/Config
 ```
 Step 9 - Create cms.json file
