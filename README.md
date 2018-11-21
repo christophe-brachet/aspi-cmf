@@ -152,11 +152,29 @@ Step 7 - Go to application directy
 ```sh
 Brachets-Mac-mini:Desktop cbrachet$ cd aspi-app
 ```
-Step 8 - Init web application
+Step 8 - Create Config directory 
+```sh
+Brachets-Mac-mini:Desktop cbrachet$  sudo mkdir src/CMS/Config
+Brachets-Mac-mini:Desktop cbrachet$  sudo chmod 777 -R src/CMS/Config
+Brachets-Mac-mini:Desktop cbrachet$  cd src/CMS/Config
+```
+Step 9 - Create cms.json file
+```sh
+Brachets-Mac-mini:Desktop cbrachet$  sudo nano cms.json
+```
+```json
+{ "host":"127.0.0.1",
+    "port":8083,
+    "mode":"development",
+    "administrator_email": "contact@brachet-breizh.fr",
+    "aspi_title": "Association Autisme-ça-suffit !"
+}
+```
+Step 10 - Init web application
 ```sh
 Brachets-Mac-mini:aspi-app cbrachet$ php bin/console aspi:init-app
 ```
-Step 9 - Start website
+Step 11 - Start Swoole WebServer
 ```sh
 Brachets-Mac-mini:aspi-app cbrachet$ php bin/console aspi:webserver
 ```
