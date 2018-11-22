@@ -278,8 +278,17 @@ christophe@vpsOVH:/var/www/aspi-app$ php bin/console aspi:webserver
 ```
 Webserver run in local... Now we must use a Proxy WebServer to access the website from a web browser.
 In this example we use Nginx. But you can use also Apache2 ou Lighttpd ...
+Step 13 -Install cerbot
+```sh
+christophe@vpsOVH:/var/www/aspi-app$ sudo apt-get install python-certbot-apache -t stretch-backports
+christophe@vpsOVH:/var/www/aspi-app$ sudo certbot renew --dry-run
+```
+Step 15 - Generate SSL certificates
+```sh
+christophe@vpsOVH:/var/www/aspi-app$ sudo certbot certonly --standalone -d testcms.brachet-breizh.fr
+```
 
-Step 13 - Install Nginx
+Step 14 - Install Nginx
 ```sh
 christophe@vpsOVH:/var/www/aspi-app$ sudo apt-get install nginx -y
 christophe@vpsOVH:/var/www/aspi-app$ sudo rm /etc /nginx/sites-available/default
@@ -297,9 +306,9 @@ server {
     server_name       testcms.brachet-breizh.fr;
         # Par défaut les certificats générés avec certbot vont dans /etc/letsencrypt/live/
         # Il faut évidement remplacer le chemin par celui correspondant au domaine
-        ssl_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr-0001//fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/testcms.brachet-breizh.fr-0001//privkey.pem;
-        ssl_trusted_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr-0001//chain.pem;
+        ssl_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/testcms.brachet-breizh.fr//privkey.pem;
+        ssl_trusted_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr/chain.pem;
         ssl_protocols TLSv1.2;
         ## Diffie-Hellman
         ssl_ecdh_curve secp384r1;
