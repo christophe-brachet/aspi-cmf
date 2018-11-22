@@ -184,4 +184,25 @@ Step 12 - Start Swoole WebServer
 ```sh
 Brachets-Mac-mini:aspi-app cbrachet$ php bin/console aspi:webserver
 ```
+# Installation on Gnu/Linux Debian
 
+Step 1- Install MariaDB database (Best performance than Mysql)
+On Gnu/Linux Debian
+
+```sh
+christophe@vpsOVH:~$ sudo apt-get -y install mariadb-server mariadb-client
+christophe@vpsOVH:~$ sudo mysql_secure_installation
+christophe@vpsOVH:~$ sudo mysql -u root -p
+```
+```sql
+MariaDB [mysql]> UPDATE user SET plugin='' WHERE User='root';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [mysql]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [mysql]> EXIT;
+Bye
+```
+Now , you can connect without sudo ...
