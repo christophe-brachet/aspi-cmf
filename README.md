@@ -237,7 +237,7 @@ Step 4- Deploy your DNS
 
 Step 5 - Install aspi CMF project from composer
 ```sh
-christophe@vpsOVH: composer create-project aspi-cmf-components/app
+christophe@vpsOVH:~$ sudo composer create-project aspi-cmf-components/app
 ```
 
 
