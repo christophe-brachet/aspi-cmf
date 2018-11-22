@@ -285,6 +285,56 @@ christophe@vpsOVH:/var/www/aspi-app$ sudo apt-get install nginx -y
 christophe@vpsOVH:/var/www/aspi-app$ sudo rm /etc /nginx/sites-available/default
 christophe@vpsOVH:/var/www/aspi-app$ sudo nano /etc/nginx/sites-available/default
 ```
+```sh
+server {
+
+ listen 80;
+ server_name testcms.brachet-breizh.fr;
+ rewrite ^ https://$server_name$request_uri? permanent;
+}
+server {
+    listen           51.255.165.236:443 ssl;
+    server_name       testcms.brachet-breizh.fr;
+        # Par défaut les certificats générés avec certbot vont dans /etc/letsencrypt/live/
+        # Il faut évidement remplacer le chemin par celui correspondant au domaine
+        ssl_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr-0001//fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/testcms.brachet-breizh.fr-0001//privkey.pem;
+        ssl_trusted_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr-0001//chain.pem;
+        ssl_protocols TLSv1.2;
+        ## Diffie-Hellman
+        ssl_ecdh_curve secp384r1;
+        ## Ciphers
+        ssl_ciphers EECDH+CHACHA20:EECDH+AESGCM:EECDH+AES;
+        ssl_prefer_server_ciphers on;
+
+        # OCSP Stapling
+        resolver 80.67.169.12 80.67.169.40 valid=300s;
+        resolver_timeout 5s;
+        ssl_stapling on;
+        ssl_stapling_verify on;
+
+        ## TLS parameters
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 5m;
+        ssl_session_tickets off;
+
+        ## HSTS
+        add_header Strict-Transport-Security "max-age=15552000; includeSubdomains; preload";
+          auth_basic "Autentification nécessaire";                                #For Basic Auth
+        auth_basic_user_file /etc/lighttpd/.htpasswd;  #For Basic Au
+        location / {
+                proxy_pass         http://localhost:8083;
+                proxy_http_version 1.1;
+                proxy_set_header   Upgrade $http_upgrade;
+                proxy_set_header   Connection keep-alive;
+                proxy_set_header   Host $host;
+                proxy_cache_bypass $http_upgrade;
+                proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header   X-Forwarded-Proto $scheme;
+       }
+
+}
+```
 
 
 
