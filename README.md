@@ -371,6 +371,11 @@ server {
 
 }
 ```
+```sh
+christophe@vpsOVH:/var/www/aspi-app$ sudo service nginx start
+```
+
+You can now access the CMS by typing in your favorite webbrowser the following url : http://testcms.brachet-breizh.fr
 
 
 
