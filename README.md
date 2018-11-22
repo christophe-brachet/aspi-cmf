@@ -229,6 +229,8 @@ Configuration File (php.ini) Path => /etc/php/7.2/cli
 Loaded Configuration File => /etc/php/7.2/cli/php.ini
 christophe@vpsOVH:/swoole-src$ sudo echo "extension=swoole.so" >  /etc/php/7.2/cli/php.ini
 christophe@vpsOVH:/swoole-src$ php -m | grep swoole
+christophe@vpsOVH:/swoole-src$ cd ..
+christophe@vpsOVH:~$ sudo rm -R swoole-src
 ```
 
 Step 4- Deploy your DNS
