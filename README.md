@@ -275,11 +275,11 @@ christophe@vpsOVH:/var/www/aspi-app$ php bin/console aspi:init
 Step 11 - Create the service file
 
 ```sh
-christophe@vpsOVH:/var/www/aspi-app$ sudo nano  /etc/systemd/system/cms.service
+christophe@vpsOVH:/var/www/aspi-app$ sudo nano  /etc/systemd/system/cmf.service
 ```
 ```sh
 [Unit]
-Description=Aspi CMS
+Description=Aspi CMF
 
 [Service]
 ExecStart=/var/www/aspi-app/bin/console aspi:webserver
@@ -287,14 +287,14 @@ Restart=always
 # Restart service after 10 seconds if th e api service crashes:
 RestartSec=10
 KillSignal=SIGINT
-SyslogIdentifier=aspi-cms
+SyslogIdentifier=aspi-cmf
 User=www-data
 
 [Install]
 WantedBy=multi-user.target
 ```
 ```sh
-christophe@vpsOVH:/var/www/aspi-app$ sudo systemctl enable cms.service
+christophe@vpsOVH:/var/www/aspi-app$ sudo systemctl enable cmf.service
 ```
 
 
