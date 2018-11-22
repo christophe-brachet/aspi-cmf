@@ -184,7 +184,7 @@ Step 12 - Start Swoole WebServer
 ```sh
 Brachets-Mac-mini:aspi-app cbrachet$ php bin/console aspi:webserver
 ```
-# Installation on Gnu/Linux Debian (For Production)
+# Installation on GNU/Linux Debian (For Production)
 
 Step 1- Install MariaDB database (Best performance than Mysql)
 On Gnu/Linux Debian
