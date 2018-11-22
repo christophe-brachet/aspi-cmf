@@ -144,7 +144,7 @@ c) and add this line to load imap-php module:
 ```sh
 extension="imap.so"
 ```
-Step 6 - Install aspi-framework project from composer
+Step 6 - Install aspi CMF project from composer
 ```sh
 Brachets-Mac-mini:Desktop cbrachet$ composer create-project aspi-cmf-components/app
 ```
@@ -234,6 +234,11 @@ christophe@vpsOVH:~$ sudo rm -R swoole-src
 ```
 
 Step 4- Deploy your DNS
+
+Step 5 - Install aspi CMF project from composer
+```sh
+Brachets-Mac-mini:Desktop cbrachet$ composer create-project aspi-cmf-components/app
+```
 
 
 
