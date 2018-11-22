@@ -237,7 +237,44 @@ Step 4- Deploy your DNS
 
 Step 5 - Install aspi CMF project from composer
 ```sh
-christophe@vpsOVH:~$ sudo composer create-project aspi-cmf-components/app
+christophe@vpsOVH:~$ cd /var/www
+christophe@vpsOVH:/var/www$ sudo composer create-project aspi-cmf-components/app
+```
+Step 6 - Go to application directy
+```sh
+christophe@vpsOVH:/var/www$ cbrachet$ cd aspi-app
+```
+Step 8 - Create Config directory 
+```sh
+christophe@vpsOVH:/var/www/aspi-app$ sudo mkdir src/CMS/Config
+christophe@vpsOVH:/var/www/aspi-app$ sudo chmod -R 777 src/CMS/Config
+christophe@vpsOVH:/var/www/aspi-app$ cd src/CMS/Config
+```
+Step 9 - Create cms.json file
+```sh
+christophe@vpsOVH:/var/www/aspi-app/src/CMS/Config$  sudo nano cms.json
+```
+```json
+{ "host":"127.0.0.1",
+    "port":8083,
+    "mode":"production",
+    "administrator_email": "contact@brachet-breizh.fr",
+    "aspi_title": "Association Autisme-ça-suffit !"
+}
+```
+Step 10 - Install npm dependencies
+```sh
+christophe@vpsOVH:/var/www/aspi-app/src/CMS/Config$ cd ../../../
+christophe@vpsOVH:/var/www/aspi-app$ npm install
+```
+Step 11 - Init web application
+```sh
+christophe@vpsOVH:/var/www/aspi-app$ php bin/console aspi:init
+```
+
+Step 12 - Start Swoole WebServer
+```sh
+christophe@vpsOVH:/var/www/aspi-app$ php bin/console aspi:webserver
 ```
 
 
