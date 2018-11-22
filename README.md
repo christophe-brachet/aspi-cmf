@@ -237,7 +237,7 @@ Step 4- Deploy your DNS
 
 Step 5 - Install aspi CMF project from composer
 ```sh
-Brachets-Mac-mini:Desktop cbrachet$ composer create-project aspi-cmf-components/app
+christophe@vpsOVH: composer create-project aspi-cmf-components/app
 ```
 
 
