@@ -320,8 +320,6 @@ server {
 
         ## HSTS
         add_header Strict-Transport-Security "max-age=15552000; includeSubdomains; preload";
-          auth_basic "Autentification nécessaire";                                #For Basic Auth
-        auth_basic_user_file /etc/lighttpd/.htpasswd;  #For Basic Au
         location / {
                 proxy_pass         http://localhost:8083;
                 proxy_http_version 1.1;
