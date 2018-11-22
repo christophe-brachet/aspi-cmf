@@ -244,13 +244,13 @@ Step 6 - Go to application directy
 ```sh
 christophe@vpsOVH:/var/www$ cbrachet$ cd aspi-app
 ```
-Step 8 - Create Config directory 
+Step 7 - Create Config directory 
 ```sh
 christophe@vpsOVH:/var/www/aspi-app$ sudo mkdir src/CMS/Config
 christophe@vpsOVH:/var/www/aspi-app$ sudo chmod -R 777 src/CMS/Config
 christophe@vpsOVH:/var/www/aspi-app$ cd src/CMS/Config
 ```
-Step 9 - Create cms.json file
+Step 8 - Create cms.json file
 ```sh
 christophe@vpsOVH:/var/www/aspi-app/src/CMS/Config$  sudo nano cms.json
 ```
@@ -262,15 +262,42 @@ christophe@vpsOVH:/var/www/aspi-app/src/CMS/Config$  sudo nano cms.json
     "aspi_title": "Association Autisme-ça-suffit !"
 }
 ```
-Step 10 - Install npm dependencies
+Step 9 - Install npm dependencies
 ```sh
 christophe@vpsOVH:/var/www/aspi-app/src/CMS/Config$ cd ../../../
 christophe@vpsOVH:/var/www/aspi-app$ npm install
 ```
-Step 11 - Init web application
+Step 10 - Init web application
 ```sh
 christophe@vpsOVH:/var/www/aspi-app$ php bin/console aspi:init
 ```
+
+Step 11 - Create the service file
+
+```sh
+christophe@vpsOVH:/var/www/aspi-app$ sudo nano  /etc/systemd/system/cms.service
+```
+```sh
+[Unit]
+Description=Aspi CMS
+
+[Service]
+ExecStart=/var/www/aspi-app/bin/console aspi:webserver
+Restart=always
+# Restart service after 10 seconds if th e api service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=aspi-cms
+User=www-data
+
+[Install]
+WantedBy=multi-user.target
+```
+```sh
+christophe@vpsOVH:/var/www/aspi-app$ sudo systemctl enable cms.service
+```
+
+
 
 Step 12 - Start Swoole WebServer
 ```sh
@@ -287,6 +314,8 @@ Step 15 - Generate SSL certificates
 ```sh
 christophe@vpsOVH:/var/www/aspi-app$ sudo certbot certonly --standalone -d testcms.brachet-breizh.fr
 ```
+
+Start the service and verify that it's running.
 
 Step 14 - Install Nginx
 ```sh
