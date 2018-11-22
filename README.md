@@ -216,5 +216,22 @@ christophe@vpsOVH:~$ sudo nano /etc/php/7.2/fpm/php.ini
 cgi.fix_pathinfo=1
 [...]date.timezone="Europe/Paris"[...]
 ```
+Step 3-Install Swoole Server
+```sh
+christophe@vpsOVH:~$ sudo git clone https://github.com/swoole/swoole-src
+christophe@vpsOVH:~$ cd swoole-src
+christophe@vpsOVH:/swoole-src$ sudo phpize
+christophe@vpsOVH:/swoole-src$ sudo ./configure 
+christophe@vpsOVH:/swoole-src$ sudo make
+christophe@vpsOVH:/swoole-src$ sudo make install
+christophe@vpsOVH:/swoole-src$ php -i | grep php.ini  
+Configuration File (php.ini) Path => /etc/php/7.2/cli
+Loaded Configuration File => /etc/php/7.2/cli/php.ini
+christophe@vpsOVH:/swoole-src$ sudo echo "extension=swoole.so" >  /etc/php/7.2/cli/php.ini
+christophe@vpsOVH:/swoole-src$ php -m | grep swoole
+```
+
+Step 4- Deploy your DNS
+
 
 
