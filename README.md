@@ -304,8 +304,8 @@ server {
 server {
     listen           51.255.165.236:443 ssl;
     server_name       testcms.brachet-breizh.fr;
-        # Par défaut les certificats générés avec certbot vont dans /etc/letsencrypt/live/
-        # Il faut évidement remplacer le chemin par celui correspondant au domaine
+        # By default, certificates generated with certbot go to / etc / letsencrypt / live /
+        # You ust replace the path by that corresponding  domain
         ssl_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/testcms.brachet-breizh.fr//privkey.pem;
         ssl_trusted_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr/chain.pem;
