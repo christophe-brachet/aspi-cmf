@@ -310,7 +310,7 @@ Step 13 -Install cerbot
 christophe@vpsOVH:/var/www/aspi-app$ sudo apt-get install python-certbot-apache -t stretch-backports
 christophe@vpsOVH:/var/www/aspi-app$ sudo certbot renew --dry-run
 ```
-Step 15 - Generate SSL certificates
+Step 13 - Generate SSL certificates
 ```sh
 christophe@vpsOVH:/var/www/aspi-app$ sudo certbot certonly --standalone -d testcms.brachet-breizh.fr
 ```
