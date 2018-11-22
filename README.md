@@ -1,6 +1,6 @@
 # aspi-CMF (In Progress - Not Ready to production !)
 ASPI-CMF (Content Management Framework). Use Aspi-Framework (https://github.com/christophe-brachet/aspi-framework)
-# Installation
+# Installation on MacOS Mojave
 
 Step 1 - Installer PHP 7.2 on your computer
 On MacOS :
