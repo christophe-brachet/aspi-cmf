@@ -276,6 +276,8 @@ Step 12 - Start Swoole WebServer
 ```sh
 christophe@vpsOVH:/var/www/aspi-app$ php bin/console aspi:webserver
 ```
+The webserver run in local... Now we must use a Proxy WebServer to access the website from a web browser.
+In this example we use Nginx. But you can use also Apache2 ou Lighttpd ...
 
 
 
