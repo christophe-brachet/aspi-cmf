@@ -323,6 +323,7 @@ christophe@vpsOVH:/var/www/aspi-app$ sudo apt-get install nginx -y
 christophe@vpsOVH:/var/www/aspi-app$ sudo rm /etc /nginx/sites-available/default
 christophe@vpsOVH:/var/www/aspi-app$ sudo nano /etc/nginx/sites-available/default
 ```
+Adapt your configuration (IP public, domain name ...)
 ```sh
 server {
 
