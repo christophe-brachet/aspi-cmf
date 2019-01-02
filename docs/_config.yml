@@ -1,0 +1,12 @@
+title: Aspi-CMF
+description: A content management framework in PHP
+show_downloads: false
+google_analytics:
+theme: jekyll-theme-architect
+email: your email
+github:
+  is_project_page: true
+  repository_url: https://github.com/christophe-brachet/aspi-cmf
+  repository_name: aspi-cmf
+  owner_url: https://christophe.brachet-breizh.fr/en
+  owner_name: Christophe Brachet

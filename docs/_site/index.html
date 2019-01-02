@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=" media="screen" type="text/css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Aspi-CMF | A content management framework in PHP</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Aspi-CMF" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A content management framework in PHP" />
+<meta property="og:description" content="A content management framework in PHP" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Aspi-CMF" />
+<script type="application/ld+json">
+{"name":"Aspi-CMF","description":"A content management framework in PHP","@type":"WebSite","url":"http://localhost:4000/","headline":"Aspi-CMF","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <a href="http://localhost:4000/">
+          <h1>Aspi-CMF</h1>
+        </a>
+        <h2>A content management framework in PHP</h2>
+        
+          <a href="https://github.com/christophe-brachet/aspi-cmf" class="button"><small>View project on</small> GitHub</a>
+        
+        
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>ASPI-CMF (Content Management Framework). Use Aspi-Framework (https://github.com/christophe-brachet/aspi-framework)</p>
+<h1 id="installation-on-macos-mojave">Installation on MacOS Mojave</h1>
+
+<p>Step 1 - Installer PHP 7.2 on your computer (to develop)
+On MacOS :
+a) Install homebrew (package manager)</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>ruby <span class="nt">-e</span> <span class="s2">"</span><span class="k">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">
+</span></code></pre></div></div>
+<p>b) Check for issues and conflicts that may occur during installation</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>brew doctor
+</code></pre></div></div>
+<p>c) Update Homebrew</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span> brew update <span class="o">&amp;&amp;</span> brew upgrade
+</code></pre></div></div>
+<p>Step 2- Install MariaDB database (Best performance than Mysql)
+On MacOS
+a) Install MariaDB with Homebrew</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>brew <span class="nb">install </span>mariadb
+</code></pre></div></div>
+<p>b) Run the database installer</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span><span class="nb">sudo </span>mysql_install_db
+</code></pre></div></div>
+<p>c) Start MariaDB Server</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>mysql.server start
+</code></pre></div></div>
+<p>d) Securise MariaDB Server</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>mysql_secure_installation
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n]
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n]
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n]
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n]
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n]
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+</code></pre></div></div>
+<p>Step 3 -Install PHP 7.2
+On MacOS :
+a) Install PHP</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>brew tap homebrew/dupes
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>brew tap homebrew/php
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>brew <span class="nb">install</span> <span class="nt">--without-apache</span> <span class="nt">--with-fpm</span> <span class="nt">--with-mysql</span> php72
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span><span class="nb">sudo rm</span> /usr/bin/php 
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /usr/local/Cellar/php/7.2.8/bin/php /usr/bin/php 
+</code></pre></div></div>
+<p>b) install swoole with pecl</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>pecl <span class="nb">install </span>swoole
+</code></pre></div></div>
+<p>Step 4 - Install composer (dependency manager)</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>php <span class="nt">-r</span> <span class="s2">"copy('https://getcomposer.org/installer', 'composer-setup.php');"</span>
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>php <span class="nt">-r</span> <span class="s2">"if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"</span>
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>php composer-setup.php
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>php <span class="nt">-r</span> <span class="s2">"unlink('composer-setup.php');"</span>
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span><span class="nb">mv </span>composer.phar /usr/local/bin/composer
+
+</code></pre></div></div>
+<p>Step 5 - Install imap 
+On MacOS
+a) Download PHP 7.2.8 on Github(https://github.com/php/php-src/tree/PHP-7.2.8) and uncompressed it on the your desktop.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>brew <span class="nb">install </span>imap-uw
+iMac-de-christophe:~ christophebrachet<span class="nv">$ </span>brew <span class="nb">install </span>openssl
+iMac-de-christophe:~ brew <span class="nb">link</span> <span class="nt">--force</span> openssl
+iMac-de-christophe:~ <span class="nb">ln</span> <span class="nt">-s</span> /usr/local/opt/openssl/include/openssl /usr/local/include
+iMac-de-christophe:~ <span class="nb">sudo mv</span> /usr/bin/phpize /usr/bin/phpize-old
+iMac-de-christophe:~ <span class="nb">sudo mv</span> /usr/bin/php-config /usr/bin/php-config
+iMac-de-christophe:~ <span class="nb">cd</span> /Users/christophebrachet/Desktop/php-src-PHP-7.2.8/ext/imap/
+iMac-de-christophe:imap christophebrachet<span class="nv">$ </span>phpize –clean
+iMac-de-christophe:imap christophebrachet<span class="nv">$ </span>./configure <span class="nt">--with-kerberos</span> <span class="nt">--with-imap-ssl</span>
+iMac-de-christophe:imap christophebrachet<span class="nv">$ </span>make
+iMac-de-christophe:imap christophebrachet<span class="nv">$ </span><span class="nb">cd </span>modules
+iMac-de-christophe:imap christophebrachet<span class="nv">$ </span><span class="nb">cp </span>imap.so /usr/local/lib/php/pecl/20170718/
+iMac-de-christophe:imap christophebrachet<span class="nv">$ </span><span class="nb">cp </span>imap.la /usr/local/lib/php/pecl/20170718/
+</code></pre></div></div>
+<p>b) Modify your php.ini:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iMac-de-christophe:imap christophebrachet<span class="nv">$ </span><span class="nb">sudo </span>nano  /usr/local/etc/php/7.2/php.ini
+</code></pre></div></div>
+<p>c) and add this line to load imap-php module:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">extension</span><span class="o">=</span><span class="s2">"imap.so"</span>
+</code></pre></div></div>
+<p>Step 6 - Install aspi CMF project from composer</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Brachets-Mac-mini:Desktop cbrachet<span class="nv">$ </span>composer create-project aspi-cmf-components/app
+</code></pre></div></div>
+<p>Step 7 - Go to application directy</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Brachets-Mac-mini:Desktop cbrachet<span class="nv">$ </span><span class="nb">cd </span>aspi-app
+</code></pre></div></div>
+<p>Step 8 - Create Config directory</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Brachets-Mac-mini:Desktop cbrachet<span class="nv">$ </span> <span class="nb">sudo mkdir </span>src/CMS/Config
+Brachets-Mac-mini:Desktop cbrachet<span class="nv">$ </span> <span class="nb">sudo chmod</span> <span class="nt">-R</span> 777 src/CMS/Config
+Brachets-Mac-mini:Desktop cbrachet<span class="nv">$ </span> <span class="nb">cd </span>src/CMS/Config
+</code></pre></div></div>
+<p>Step 9 - Create cms.json file</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Brachets-Mac-mini:Desktop cbrachet<span class="nv">$ </span> <span class="nb">sudo </span>nano cms.json
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="s2">"host"</span><span class="p">:</span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"port"</span><span class="p">:</span><span class="mi">8083</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mode"</span><span class="p">:</span><span class="s2">"development"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"administrator_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contact@brachet-breizh.fr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"aspi_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Association Autisme-ça-suffit !"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Step 10 - Install npm dependencies</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Brachets-Mac-mini:aspi-app cbrachet<span class="nv">$ </span><span class="nb">cd</span> ../../../
+Brachets-Mac-mini:aspi-app cbrachet<span class="nv">$ </span>npm <span class="nb">install</span>
+</code></pre></div></div>
+<p>Step 11 - Init web application</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Brachets-Mac-mini:aspi-app cbrachet<span class="nv">$ </span>php bin/console aspi:init
+</code></pre></div></div>
+
+<p>Step 12 - Start Swoole WebServer</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Brachets-Mac-mini:aspi-app cbrachet<span class="nv">$ </span>php bin/console aspi:webserver
+</code></pre></div></div>
+<h1 id="installation-on-gnulinux-debian-for-production">Installation on GNU/Linux Debian (For Production)</h1>
+
+<p>Step 1- Install MariaDB database (Best performance than Mysql)
+On Gnu/Linux Debian</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nt">-y</span> <span class="nb">install </span>mariadb-server mariadb-client
+christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">sudo </span>mysql_secure_installation
+christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">sudo </span>mysql <span class="nt">-u</span> root <span class="nt">-p</span>
+</code></pre></div></div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MariaDB</span> <span class="p">[</span><span class="n">mysql</span><span class="p">]</span><span class="o">&gt;</span> <span class="k">UPDATE</span> <span class="k">user</span> <span class="k">SET</span> <span class="n">plugin</span><span class="o">=</span><span class="s1">''</span> <span class="k">WHERE</span> <span class="k">User</span><span class="o">=</span><span class="s1">'root'</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="k">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="k">Rows</span> <span class="n">matched</span><span class="p">:</span> <span class="mi">1</span>  <span class="n">Changed</span><span class="p">:</span> <span class="mi">1</span>  <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">mysql</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">FLUSH</span> <span class="k">PRIVILEGES</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">MariaDB</span> <span class="p">[</span><span class="n">mysql</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">EXIT</span><span class="p">;</span>
+<span class="n">Bye</span>
+</code></pre></div></div>
+<p>Now , you can connect without sudo …MariaDB is ready to use.</p>
+
+<p>Step 2- Install PHP</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nt">-y</span> <span class="nb">install </span>php7.2 php7.2-dev php7.2-fpm php7.2-common php7.2-mysql php7.2-cli php7.2-opcache php7.2-curl php7.2-json php7.2-gd php7.2-mcrypt php7.2-msgpack php7.2-apc php7.2-intl php7.2-sqlite3 php7.2-gmp php7.2-geoip php7.2-mbstring php7.2-xml php7.2-zip php-pear php7.2-imagick php7.2-imap php7.2-ps php7.2-pspell php7.2-recode php7.2-tidy php7.2-xmlrpc php7.2-xsl php7.2-memcache php7.2-memcached php7.2-apcu
+christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">sudo </span>nano /etc/php/7.2/fpm/php.ini
+<span class="o">[</span>...]
+cgi.fix_pathinfo<span class="o">=</span>1
+<span class="o">[</span>...]date.timezone<span class="o">=</span><span class="s2">"Europe/Paris"</span><span class="o">[</span>...]
+</code></pre></div></div>
+<p>Step 3-Install Swoole Server</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">sudo </span>git clone https://github.com/swoole/swoole-src
+christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">cd </span>swoole-src
+christophe@vpsOVH:/swoole-src<span class="nv">$ </span><span class="nb">sudo </span>phpize
+christophe@vpsOVH:/swoole-src<span class="nv">$ </span><span class="nb">sudo</span> ./configure 
+christophe@vpsOVH:/swoole-src<span class="nv">$ </span><span class="nb">sudo </span>make
+christophe@vpsOVH:/swoole-src<span class="nv">$ </span><span class="nb">sudo </span>make <span class="nb">install
+</span>christophe@vpsOVH:/swoole-src<span class="nv">$ </span>php <span class="nt">-i</span> | <span class="nb">grep </span>php.ini  
+Configuration File <span class="o">(</span>php.ini<span class="o">)</span> Path <span class="o">=&gt;</span> /etc/php/7.2/cli
+Loaded Configuration File <span class="o">=&gt;</span> /etc/php/7.2/cli/php.ini
+christophe@vpsOVH:/swoole-src<span class="nv">$ </span><span class="nb">sudo echo</span> <span class="s2">"extension=swoole.so"</span> <span class="o">&gt;</span>  /etc/php/7.2/cli/php.ini
+christophe@vpsOVH:/swoole-src<span class="nv">$ </span>php <span class="nt">-m</span> | <span class="nb">grep </span>swoole
+christophe@vpsOVH:/swoole-src<span class="nv">$ </span><span class="nb">cd</span> ..
+christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">sudo rm</span> <span class="nt">-R</span> swoole-src
+</code></pre></div></div>
+
+<p>Step 4- Deploy your DNS</p>
+
+<p>Step 5 - Install aspi CMF project from composer</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:~<span class="nv">$ </span><span class="nb">cd</span> /var/www
+christophe@vpsOVH:/var/www<span class="nv">$ </span><span class="nb">sudo </span>composer create-project aspi-cmf-components/app
+</code></pre></div></div>
+<p>Step 6 - Go to application directy</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www<span class="nv">$ </span>cbrachet<span class="nv">$ </span><span class="nb">cd </span>aspi-app
+</code></pre></div></div>
+<p>Step 7 - Create Config directory</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo mkdir </span>src/CMS/Config
+christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo chmod</span> <span class="nt">-R</span> 777 src/CMS/Config
+christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">cd </span>src/CMS/Config
+</code></pre></div></div>
+<p>Step 8 - Create cms.json file</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app/src/CMS/Config<span class="nv">$ </span> <span class="nb">sudo </span>nano cms.json
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="s2">"host"</span><span class="p">:</span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"port"</span><span class="p">:</span><span class="mi">8083</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mode"</span><span class="p">:</span><span class="s2">"production"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"administrator_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contact@brachet-breizh.fr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"aspi_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Association Autisme-ça-suffit !"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Step 9 - Install npm dependencies</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app/src/CMS/Config<span class="nv">$ </span><span class="nb">cd</span> ../../../
+christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span>npm <span class="nb">install</span>
+</code></pre></div></div>
+<p>Step 10 - Init web application</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span>php bin/console aspi:init
+</code></pre></div></div>
+
+<p>Step 11 - Create the service file</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo </span>nano  /etc/systemd/system/cmf.service
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Unit]
+<span class="nv">Description</span><span class="o">=</span>Aspi CMF
+
+<span class="o">[</span>Service]
+<span class="nv">ExecStart</span><span class="o">=</span>/var/www/aspi-app/bin/console aspi:webserver
+<span class="nv">Restart</span><span class="o">=</span>always
+<span class="c"># Restart service after 10 seconds if th e api service crashes:</span>
+<span class="nv">RestartSec</span><span class="o">=</span>10
+<span class="nv">KillSignal</span><span class="o">=</span>SIGINT
+<span class="nv">SyslogIdentifier</span><span class="o">=</span>aspi-cmf
+<span class="nv">User</span><span class="o">=</span>www-data
+
+<span class="o">[</span>Install]
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>cmf.service
+</code></pre></div></div>
+
+<p>Step 12 - Start Swoole WebServer</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span>php bin/console aspi:webserver
+</code></pre></div></div>
+<p>Webserver run in local… Now we must use a Proxy WebServer to access the website from a web browser.
+In this example we use Nginx. But you can use also Apache2 ou Lighttpd …
+Step 13 -Install cerbot</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>python-certbot-apache <span class="nt">-t</span> stretch-backports
+christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo </span>certbot renew <span class="nt">--dry-run</span>
+</code></pre></div></div>
+<p>Step 13 - Generate SSL certificates</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo </span>certbot certonly <span class="nt">--standalone</span> <span class="nt">-d</span> testcms.brachet-breizh.fr
+</code></pre></div></div>
+
+<p>Start the service and verify that it’s running.</p>
+
+<p>Step 14 - Install Nginx</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>nginx <span class="nt">-y</span>
+christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo rm</span> /etc /nginx/sites-available/default
+christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo </span>nano /etc/nginx/sites-available/default
+</code></pre></div></div>
+<p>Adapt your configuration (IP public, domain name …)</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server <span class="o">{</span>
+
+ listen 80<span class="p">;</span>
+ server_name testcms.brachet-breizh.fr<span class="p">;</span>
+ rewrite ^ https://<span class="nv">$server_name$request_uri</span>? permanent<span class="p">;</span>
+<span class="o">}</span>
+server <span class="o">{</span>
+    listen           51.255.165.236:443 ssl<span class="p">;</span>
+    server_name       testcms.brachet-breizh.fr<span class="p">;</span>
+        <span class="c"># By default, certificates generated with certbot go to / etc / letsencrypt / live /</span>
+        <span class="c"># You ust replace the path by that corresponding  domain</span>
+        ssl_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr/fullchain.pem<span class="p">;</span>
+        ssl_certificate_key /etc/letsencrypt/live/testcms.brachet-breizh.fr//privkey.pem<span class="p">;</span>
+        ssl_trusted_certificate /etc/letsencrypt/live/testcms.brachet-breizh.fr/chain.pem<span class="p">;</span>
+        ssl_protocols TLSv1.2<span class="p">;</span>
+        <span class="c">## Diffie-Hellman</span>
+        ssl_ecdh_curve secp384r1<span class="p">;</span>
+        <span class="c">## Ciphers</span>
+        ssl_ciphers EECDH+CHACHA20:EECDH+AESGCM:EECDH+AES<span class="p">;</span>
+        ssl_prefer_server_ciphers on<span class="p">;</span>
+
+        <span class="c"># OCSP Stapling</span>
+        resolver 80.67.169.12 80.67.169.40 <span class="nv">valid</span><span class="o">=</span>300s<span class="p">;</span>
+        resolver_timeout 5s<span class="p">;</span>
+        ssl_stapling on<span class="p">;</span>
+        ssl_stapling_verify on<span class="p">;</span>
+
+        <span class="c">## TLS parameters</span>
+        ssl_session_cache shared:SSL:10m<span class="p">;</span>
+        ssl_session_timeout 5m<span class="p">;</span>
+        ssl_session_tickets off<span class="p">;</span>
+
+        <span class="c">## HSTS</span>
+        add_header Strict-Transport-Security <span class="s2">"max-age=15552000; includeSubdomains; preload"</span><span class="p">;</span>
+        location / <span class="o">{</span>
+                proxy_pass         http://localhost:8083<span class="p">;</span>
+                proxy_http_version 1.1<span class="p">;</span>
+                proxy_set_header   Upgrade <span class="nv">$http_upgrade</span><span class="p">;</span>
+                proxy_set_header   Connection keep-alive<span class="p">;</span>
+                proxy_set_header   Host <span class="nv">$host</span><span class="p">;</span>
+                proxy_cache_bypass <span class="nv">$http_upgrade</span><span class="p">;</span>
+                proxy_set_header   X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+                proxy_set_header   X-Forwarded-Proto <span class="nv">$scheme</span><span class="p">;</span>
+       <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>christophe@vpsOVH:/var/www/aspi-app<span class="nv">$ </span><span class="nb">sudo </span>service nginx start
+</code></pre></div></div>
+
+<p>You can now access the CMF by typing in your favorite webbrowser the following url : http://testcms.brachet-breizh.fr</p>
+
+
+        </section>
+
+        <aside id="sidebar">
+          
+
+          
+            <p class="repo-owner"><a href="https://github.com/christophe-brachet/aspi-cmf">aspi-cmf</a> is maintained by <a href="https://christophe.brachet-breizh.fr/en">Christophe Brachet</a> and is in bêta .(In Progress - Not Ready to production !).</p>
+          
+          You can find it on packagist website : 
+          <a href="https://packagist.org/packages/aspi-cmf-components/app">aspi-cmf-components/app</a>
+        </aside>
+      </div>
+    </div>
+
+    
+  </body>
+</html>
